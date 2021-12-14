@@ -1,0 +1,16 @@
+body {
+  box-sizing: border-box;
+  background-image: url("Japanese-Castle.jpg");
+  background-size: cover;
+}
+
+.modal {
+  position: fixed;
+  z-index: 3;
+  width: 50%; 
+  height: 50%; 
+  overflow: auto;
+  background-image: url("modal.jpg");
+  background-size: cover;
+}
+
