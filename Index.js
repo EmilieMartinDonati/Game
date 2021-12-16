@@ -488,7 +488,11 @@ function updateZombies() {
   // }
 }
 }
-const intervalID = setInterval(updateZombies, 100);
+const intervalId = setInterval(updateZombies, 100);
+
+function stopFunction() {
+  clearInterval(intervalId);
+}
 
 //Player.
 
@@ -706,10 +710,12 @@ function updatePrize() {
   zombiesArr.forEach(function crashCheck(zombie) {
     if (zombie.y - player.y < 50 && zombie.x - player.x < 50) {
       GameOver();
+      // stopFunction();
     }
   })
   if (prize.y - player.y < 50 && prize.x - player.x < 50) { 
     displayQuizz();
+    stopFunction();
   }
     ctx.clearRect(0, 0, 1500, 1000);
   player.draw();
