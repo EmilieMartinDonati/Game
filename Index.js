@@ -1,5 +1,5 @@
 //Quiz.
-const question = document.getElementById('question');
+const question = document.getElementById("question");
 // const quizContainer = document.getElementById('quiz');
 // const resultsContainer = document.getElementById('results');
 // const submitButton = document.getElementById('submit');
@@ -454,6 +454,22 @@ function updateZombies() {
   }
   else {
     zombie4.move("plus");
+  }
+  const zombiesArr = [];
+  zombiesArr.push(zombie);
+  zombiesArr.push(zombie2);
+  zombiesArr.push(zombie3);
+  zombiesArr.push(zombie4);
+  zombiesArr.forEach(function crashCheck(zombie) {
+    if (zombie.y - player.y < 50 && zombie.x - player.x < 50) {
+      GameOver();
+      // stopFunction();
+    }
+  })
+  if (prize.y - player.y < 50 && prize.x - player.x < 50) { 
+    displayQuizz();
+    stopFunction();
+  }
   // use time to generate zombies any x time %;
   // console.log(zombies);
   // console.log(zombies[0].y);
@@ -487,7 +503,7 @@ function updateZombies() {
   //   if ((prize.y - player.y < 50) && (prize.x - player.x < 50)) { console.log("Well done") }
   // }
 }
-}
+
 const intervalId = setInterval(updateZombies, 100);
 
 function stopFunction() {
@@ -702,21 +718,7 @@ function updatePrize() {
 
 
 
-  const zombiesArr = [];
-  zombiesArr.push(zombie);
-  zombiesArr.push(zombie2);
-  zombiesArr.push(zombie3);
-  zombiesArr.push(zombie4);
-  zombiesArr.forEach(function crashCheck(zombie) {
-    if (zombie.y - player.y < 50 && zombie.x - player.x < 50) {
-      GameOver();
-      // stopFunction();
-    }
-  })
-  if (prize.y - player.y < 50 && prize.x - player.x < 50) { 
-    displayQuizz();
-    stopFunction();
-  }
+  
     ctx.clearRect(0, 0, 1500, 1000);
   player.draw();
   // generateZombies();
