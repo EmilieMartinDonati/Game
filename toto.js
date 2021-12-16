@@ -461,7 +461,7 @@ function updateZombies() {
   zombiesArr.push(zombie3);
   zombiesArr.push(zombie4);
   zombiesArr.forEach(function crashCheck(zombie) {
-    if (zombie.y - player.y < 50 && zombie.x - player.x < 50) {
+    if ((zombie.y - player.y < 50) && (zombie.x - player.x < 50)) {
       GameOver();
       // stopFunction();
     }
@@ -638,7 +638,7 @@ function GameOver() {
   // ctx.clearRect(0, 0, 1500, 1000);
   // window.location.reload();
   modalRestartVisibilityHandler();
-  console.log("whatever");
+  console.log("crash");
 }
 
 // 
